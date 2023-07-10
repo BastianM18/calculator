@@ -66,6 +66,20 @@ button:focus {
 }
 
 #previous-value {
+  position: relative;
   padding-bottom: 10px;
   font-size: 2em;
+}
+
+#previous-value::after {
+  width: 60%;
+  top: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  content: attr(data-error);
+  padding-bottom: 10px;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #fff;
 }

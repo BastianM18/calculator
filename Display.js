@@ -26,10 +26,16 @@ class Display {
     this.previousValue = '';
     this.operationType = undefined;
     this.printValues();
+    this.displayPreviousValue = '';
   }
 
   // update numbers on display
   compute(type) {
+    if(this.operationType === 'div' && +this.currentValue === 0) {
+      this.displayPreviousValue.dataset.error = 'Error'
+      return
+    }
+
     this.operationType !== 'equal' && this.calculate();
     this.operationType = type;
     this.previousValue = this.currentValue || this.previousValue;
